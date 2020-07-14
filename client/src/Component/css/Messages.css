@@ -1,0 +1,40 @@
+body,
+html {
+  height: 100%;
+}
+.h2 {
+  font-size: 25px;
+}
+.ChatBtn {
+  position: fixed;
+  left: 90%;
+  top: 90%;
+  height: 10%;
+  width: 10%;
+  font-size: 30px;
+  background-color: #cacaca;
+  transition: 0.5s;
+  border: 1px gray solid;
+  border-radius: 10px;
+}
+
+.ChatBtn:hover {
+  border-radius: 15px;
+  background-color: gray;
+  color: white;
+  width: 15%;
+  left: 85%;
+  border: 1px solid;
+}
+.chatImput {
+  transition: 0.5s;
+  width: 90%;
+  position: fixed;
+  height: 10%;
+}
+.chatInput {
+  width: 90%;
+  font-size: 30px;
+  position: fixed;
+  top: 90%;
+}

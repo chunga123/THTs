@@ -1,0 +1,40 @@
+.TaskA {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  border: 1px gray solid;
+  opacity: 1;
+  transition: 0.8s;
+}
+#tittle {
+  float: right;
+  color: black;
+  padding-right: 50px !important;
+  padding-top: 15px;
+}
+#fake {
+  position: absolute;
+}
+.Task {
+  float: left;
+}
+
+.Task a {
+  transition: 0.4s;
+  font-size: 20px;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  transition: 0.5s;
+  background-color: gray;
+  color: white;
+  opacity: 0.8;
+}
