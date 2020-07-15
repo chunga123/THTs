@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import $ from "jquery";
-
+import data from "../data.json";
 import "./css/Home.css";
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      speed: 10,
       PostContent: "",
     };
   }
@@ -16,16 +15,20 @@ class Home extends Component {
     });
     this.props.SubmitPost();
   };
+  OnClickContentPost = () => {};
   OnPost = (event) => this.props.OnPost(event);
-  componentDidMount() {}
+  componentDidMount() {
+    document.getElementById("ContentPost").placeholder = localStorage.tooken
+      ? data[localStorage.tooken].name + ".What are you thinking..."
+      : "Sign In ...mark";
+  }
   FakeBtn = () => document.getElementById("real-file").click();
   render() {
     return (
       <div>
         <div className="row">
-          <div class="col-3"></div>
-
-          <div class="col-6">
+          <div className="col-1"></div>
+          <div class="col-8">
             <div
               class="wrap-input100 validate-input m-b-36"
               data-validate="Username is required"
@@ -41,7 +44,6 @@ class Home extends Component {
             </div>
 
             <div class="form-group">
-              <label for=""></label>
               <input
                 type="file"
                 class="btn btn-success"
@@ -64,11 +66,20 @@ class Home extends Component {
                 SUBMIT
               </button>
             </div>
-            <p id="TextContent">{this.state.PostContent}</p>
-            <img src="" id="bannerImg"></img>
+            <p className="TextContent">{this.state.PostContent}</p>
           </div>
 
-          <div class="col-3"></div>
+          <div class="col-3" id="ListUser">
+            <ul>
+              {data.map((info, id) => {
+                return (
+                  <li className="InfoList" key={id}>
+                    {info.name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     );

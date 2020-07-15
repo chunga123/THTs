@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./css/Messages.css";
 import io from "socket.io-client";
+import data from "../data.json";
 const socket = io.connect("http://localhost:5000");
 let Loop = false;
 class Messages extends Component {
@@ -17,19 +18,18 @@ class Messages extends Component {
   onMessageSubmit = (e) => {
     Loop = false;
     e.preventDefault();
-
+    let name = localStorage.tooken ? data[localStorage.tooken].name : "Unknow";
     if (this.state.msg) {
-      socket.emit("chat message", this.state.msg);
+      socket.emit("chat message", {
+        msg: this.state.msg,
+        name: name,
+      });
 
       this.setState({ msg: "" });
     }
   };
 
   OnTextChange = (e) => {
-    if (e.keyCode === 13) {
-      // Do something
-      alert("qwegqweg");
-    }
     this.setState({
       msg: e.target.value,
     });
@@ -38,15 +38,13 @@ class Messages extends Component {
     socket.on("chat message", (msg) => {
       let Msgs = this.state.msgs;
       Msgs.push({
-        id: msg.id,
+        name: msg.name,
         msg: msg.msg,
       });
-
+      console.log(msg);
       this.setState({
         msgs: Msgs,
       });
-
-      console.log(this.state.msgs);
     });
   }
   render() {
@@ -54,9 +52,10 @@ class Messages extends Component {
       <div class="form-group">
         <div className="Chat Text">
           {this.state.msgs.map((msg, id) => {
+            console.log(msg);
             return (
               <h2 key={id} className="h2">
-                {msg.id} : {msg.msg}
+                {msg.name}: {msg.msg}
               </h2>
             );
           })}

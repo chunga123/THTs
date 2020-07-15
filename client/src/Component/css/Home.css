@@ -1,3 +1,7 @@
+body,
+html {
+  height: 100%;
+}
 .PostInput {
   display: block;
   width: 100%;
@@ -7,15 +11,44 @@
   opacity: 0.8;
   color: black;
 }
-#bannerImg {
+#ListUser {
+  position: fixed;
+  left: 75%;
+}
+.TextContent {
+  font-size: 30px;
+}
+.AvaUser {
+  border-radius: 50px;
+}
+.InfoList {
+  font-size: 25px;
+  border-bottom: 1px gray solid;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.InfoList:hover {
+  background-color: gray;
+  color: white;
+  font-size: 30px;
+  border: 1px black solid;
+}
+
+.bannerImg {
   width: 100%;
-  transition: 0.4;
+  transition: 0.4s;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 .col-6 {
   border-left: 1px gray solid;
   border-right: 1px gray solid;
 }
 .PostInput {
+}
+.SubCmt {
+  display: inline;
+  font-size: 29px;
 }
 .PostButton {
   display: block;
@@ -28,11 +61,33 @@
   border: 1px gray solid;
   border-radius: 5px;
 }
+.CmtInput {
+  font-size: 30px;
+  position: relative;
+  width: 65%;
+  top: 10px;
+}
+.comment {
+  font-size: 30px;
+}
 .PostButton:hover {
   background-color: gray;
   left: 0;
   width: 100%;
   color: white;
+}
+.LikeComment {
+  font-size: 30px;
+  transition: 0.3s;
+}
+.LikeComment:hover {
+  background-color: gray;
+}
+.CmtContents {
+  font-size: 30px;
+}
+.HomePost {
+  border-top: 1px black solid;
 }
 .row {
   width: 100%;
@@ -53,7 +108,9 @@
   color: black;
   font-size: 17px;
 }
-
+.TextContents {
+  font-size: 25px;
+}
 #custom-button:hover {
   opacity: 1;
   background-color: gray;

@@ -14,6 +14,10 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
   margin-bottom: 35px;
   position: relative;
 }
+.table {
+  font-size: 30px;
+  align-items: center;
+}
 .profile__photo img {
   max-width: 100%;
 }
@@ -30,6 +34,16 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
   font-weight: 600;
   opacity: 0;
   transition: opacity 0.2s linear;
+}
+.AllMyImg {
+  position: relative;
+  left: 10%;
+}
+.MyImg {
+  width: 300px;
+  height: 250px;
+  display: inline;
+  padding: 10px;
 }
 :root {
   font-size: 10px;

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-
+import data from "../data.json";
+import imgs from "./Img.json";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import "./css/Mypage.css";
 class MyPage extends Component {
   constructor() {
@@ -31,7 +33,14 @@ class MyPage extends Component {
     };
   }
   ChangeAvatar = () => {};
-  componentDidMount() {}
+  componentDidMount() {
+    if (localStorage.tooken) {
+      this.setState({
+        MyName: data[localStorage.tooken].name,
+        MyAvatar: data[localStorage.tooken].avatar,
+      });
+    }
+  }
   render() {
     return (
       <div>
@@ -92,6 +101,34 @@ class MyPage extends Component {
             </div>
           </div>
         </header>
+
+        <div className="row AllMyImg">
+          <div className="col-1"></div>
+
+          <div className="col-10">
+            {imgs.map((img, id) => {
+              return <img src={img} key={id} className="MyImg"></img>;
+            })}
+
+            {/* <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                </tr> */}
+          </div>
+
+          <div className="col-1"></div>
+        </div>
       </div>
     );
   }
