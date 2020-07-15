@@ -174,7 +174,9 @@ class App extends React.Component {
       });
     }
   };
-
+  ggmap = () => {
+    window.location = "https://chunga123.github.io/HELLO/hello.html";
+  };
   render() {
     if (this.state.TaskBarOpen == true) {
       $(".TaskA").show();
@@ -203,6 +205,9 @@ class App extends React.Component {
 
             <li className="Task">
               <Link to="/Booking">Booking</Link>
+            </li>
+            <li className="Task">
+              <Link onClick={this.ggmap}>Find Place</Link>
             </li>
 
             <h1 id="tittle" className="Task">
